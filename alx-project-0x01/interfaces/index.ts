@@ -17,7 +17,7 @@ export interface PostModalProps {
   onSubmit: (post: PostData) => void;
 }
 
-export interface User {
+export interface UserProps {
   id: number;
   name: string;
   username: string;
