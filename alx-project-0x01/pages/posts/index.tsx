@@ -1,1 +1,1 @@
-pots index.tsx
+import Header from "@/components/layout/Header";
