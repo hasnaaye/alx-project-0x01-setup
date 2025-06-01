@@ -30,4 +30,4 @@ export async function getStaticProps() {
   return { props: { users }};
 }
 
-export default Users
+export default Users;
