@@ -2,13 +2,27 @@ import { UserData, UserModalProps } from "@/interfaces";
 import React, { useState } from "react";
 
 const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
-  const [user, setUser] = useState<UserData>({
+  const [user, setUser] = useState<UserProps>({
     id: 0,
     name: "",
     username: "",
     email: "",
     phone: "",
-    address: ""
+    address: {
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: '',
+      geo: {
+        lat: '',
+        lng
+      }
+    },
+    company: {
+      name: '',
+      catchPhrase: '',
+      bs: ''
+    }
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,7 +70,19 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
             <textarea
               id="address"
               name="address"
-              value={user.address}
+              value={user.address.geo.lat}
+              onChange={handleChange}
+              rows={4}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter user address"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="address" className="block text-gray-700 font-medium mb-2">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              value={user.address.geo.lng}
               onChange={handleChange}
               rows={4}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
